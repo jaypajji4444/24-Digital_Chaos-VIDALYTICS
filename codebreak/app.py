@@ -18,6 +18,12 @@ vi = VideoIndexer(
     vi_account_id=CONFIG['ACCOUNT_ID']
 )
 
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
 
 
 def upload_file():
