@@ -51,6 +51,11 @@ def indexvideo(video_id,language):
     return info
 
 
+@app.route('/shutdown', methods=['GET'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
+
 
 
 @app.route('/uploader', methods=['GET', 'POST'])
